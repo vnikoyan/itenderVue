@@ -13,7 +13,11 @@
                     <div class="single-page-header-right">
 
                         <ol class="breadcrumb float-right">
-                        <li class="breadcrumb-item"><a href="index.html">   {{ $t('menu.home') }}</a></li>
+                        <li class="breadcrumb-item">
+                            <router-link to="/" class="open_review">
+                                {{ $t('menu.home') }}
+                            </router-link>
+                        </li>
                         <li class="breadcrumb-item active">{{ $t('menu.information') }}</li>
                         </ol>
                     </div>
@@ -51,7 +55,7 @@ import News from '@/components/landing/News'
 
 export default {
     mounted() {
-        this.$store.dispatch('info/get')
+        // this.$store.dispatch('info/get')
     },
     computed: {
         info() {

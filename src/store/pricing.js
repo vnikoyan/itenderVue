@@ -12,7 +12,6 @@ const actions = {
   get({ commit }) {
     // eslint-disable-next-line no-undef
     return $client.get('package').then(response => {
-      console.log(response)
       commit('setpricing', response.data.data)    
     })
   }

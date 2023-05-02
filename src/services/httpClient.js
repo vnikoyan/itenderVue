@@ -1,9 +1,12 @@
 import axios from 'axios'
 import store from '../store'
 
+
 const client = axios.create({
   baseURL: process.env.VUE_APP_API_URL,
 })
+
+const cancelSource = axios.CancelToken.source();
 
 client.interceptors.request.use(
   config => {
@@ -27,11 +30,12 @@ client.interceptors.response.use(
     }
   },
   error => {
-    if (error.response.status === 401) {
+    console.log(error)
+    if (error.response && error.response.status === 401) {
       store.dispatch('logout')
     }
-    return Promise.reject(error.response)
+    return Promise.reject(error.response || error.message)
   }
 );
 
-export default client
+export default { client, cancelSource }

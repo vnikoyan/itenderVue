@@ -28,7 +28,7 @@
   top: -7px;
   border-right: 7px solid transparent;
   border-left: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
+  border-bottom: 7px solid  black;
 }
 
 .daterangepicker:after {
@@ -78,7 +78,7 @@
   top: initial;
   bottom: -7px;
   border-bottom: initial;
-  border-top: 7px solid #ccc;
+  border-top: 7px solid  black;
 }
 
 .daterangepicker.drop-up:after {
@@ -180,7 +180,7 @@
 
 .daterangepicker td.week, .daterangepicker th.week {
   font-size: 80%;
-  color: #ccc;
+  color:  black;
 }
 
 .daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
@@ -259,7 +259,7 @@
 }
 
 .daterangepicker .calendar-time select.disabled {
-  color: #ccc;
+  color:  black;
   cursor: not-allowed;
 }
 

@@ -10,7 +10,9 @@
     <div class="alert-close">
       <button type="button" class="close" @click="closeAlert" aria-label="Close">
         <span aria-hidden="true">
-          <i class="mdi mdi-close"></i>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20 5.64097L18.359 3.99995L12 10.359L5.64102 4L4 5.64102L10.3589 12L4.00003 18.3589L5.64105 19.9999L12 13.641L18.3589 20L20 18.3589L13.641 12L20 5.64097Z" fill="#ABAEB8"/>
+          </svg>
         </span>
       </button>
     </div>
@@ -20,7 +22,13 @@
 <script>
     export default {
       name: 'Alert',
-      props: ['type'],
+      props: {
+        type: String,
+        timeOut: {
+          default: 5000,
+          type: Number
+        }
+      },
       data() {
         return {
           timout: null
@@ -50,7 +58,7 @@
         console.log(this.$props, 'alert props')
         this.timout = setTimeout(() => {
           this.closeAlert()
-        }, 5000)
+        }, this.timeOut)
       },
       methods: {
         closeAlert() {

@@ -14,7 +14,6 @@ const actions = {
   get({ commit }) {
     // eslint-disable-next-line no-undef
     return $client.get('event').then(response => {
-      console.log(response)
       commit('setEvent', response.data.data)    
     })
   },

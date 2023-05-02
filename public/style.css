@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
     color: #fff;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     line-height: 40px;
     margin: 0;
@@ -191,7 +191,7 @@ img {
 }
 
 .header-bottom {
-    background-color: #1e7bb7;
+    background-color: #006BE6;
     border-bottom: 1px solid #e4e4e4;
     color: #949494;
     font-size: 12px;
@@ -262,7 +262,6 @@ img {
 }
 
 .login {
-    background: linear-gradient(145deg, #1b6fa5, #2084c4, #5facde);
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     color: #fff;
@@ -278,7 +277,7 @@ img {
 
 .login:hover,
 .login:focus {
-    color: #1e7bb7;
+    color: #006BE6;
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
     text-decoration: none;
     outline: none;
@@ -517,19 +516,13 @@ img {
 /* SLIDER */
 /*--------------------*/
 
-
-#slider {
-    display: inline;
-    float: left;
-    width: 100%;
-}
-
 .main-slider {
     display: inline;
     float: left;
-    height: 400px;
+    height: 535px;
     margin-bottom: 0;
     width: 100%;
+    margin-bottom: -100px;
 }
 
 .main-slider .slick-list {
@@ -548,7 +541,7 @@ img {
 
 .slide-content {
     height: 100%;
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
 }
@@ -586,11 +579,11 @@ img {
 }
 
 .main-slider .slick-dots {
-    bottom: 10px;
+    bottom: -25px;
 }
 
 .main-slider .slick-dots li {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: white;
     border-radius: 50%;
 }
 
@@ -609,7 +602,7 @@ img {
 }
 
 .slide-article h1 {
-    color: #1e7bb7;
+    color: #006BE6;
     font-size: 45px;
     font-weight: bold;
     line-height: 55px;
@@ -618,14 +611,14 @@ img {
 }
 
 .slide-article p {
-    color: #1e7bb7;
+    color: #006BE6;
     margin-bottom: 50px;
 }
 
 .read-more-btn {
-    background: #1e7bb7;
+    background: #006BE6;
     color: white;
-    border: 1px solid #1e7bb7;
+    border: 1px solid #006BE6;
     display: inline-block;
     padding: 12px 22px;
     border-radius: 30px;
@@ -660,7 +653,6 @@ img {
     background-color: #fff;
     display: inline;
     float: left;
-    padding: 70px 0;
     width: 100%;
 }
 
@@ -888,24 +880,20 @@ img {
 /*--------------------*/
 
 #counter {
-    background-attachment: fixed !important;
-    background-image: url("/assets/landing/images/counter-bg.jpg");
-    background-repeat: repeat;
-    background-size: cover;
     color: #ffffff;
     display: inline;
     float: left;
     width: 100%;
-    margin: 50px 0;
+    margin: 0 0 45px;
 }
 
 .counter-overlay {
-    background: rgba(15, 22, 30, 0.5) none repeat scroll 0 0;
+    background: linear-gradient(rgba(30, 123, 183, 1),
+    rgba(67, 180, 178, 1)) ;
     color: #ffffff;
-    display: inline;
-    float: left;
     padding: 50px 0 90px;
     width: 100%;
+    border-radius: 12px;
 }
 
 .counter-area {
@@ -952,17 +940,11 @@ img {
     color: #fff;
     display: inline;
     float: left;
-    font-size: 20px;
+    font-size: 18px;
     width: 100%;
+    font-weight: 400;
 }
 
-.single-counter .counter-label::after {
-    content: "";
-    height: 2px;
-    margin: 8px auto;
-    width: 35px;
-    display: block;
-}
 
 
 /*--------------------*/
@@ -1030,7 +1012,6 @@ img {
 
 
 #pricing-table {
-    background-color: #f8f8f8;
     display: inline;
     float: left;
     width: 100%;
@@ -1051,13 +1032,13 @@ img {
     text-align: center;
     width: 100%;
     min-height: 495px;
-    border: 1px solid #ccc;
+    border: 1px solid  black;
 
 }
 
 .price-header {
     background-color: #383838;
-    color: #ccc;
+    color:  black;
     display: inline;
     float: left;
     width: 100%;
@@ -1100,7 +1081,7 @@ img {
 }
 
 .price-article ul li {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid  black;
     color: #555;
     padding: 15px 0;
 }
@@ -1117,7 +1098,7 @@ img {
 
 .purchase-btn {
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     display: inline-block;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -1370,7 +1351,7 @@ img {
 .single-brand {
     background-color: #f8f8f8;
     opacity: 0.7;
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     display: inline;
     float: left;
     height: 120px;
@@ -1405,7 +1386,6 @@ img {
 .latest-news-content {
     display: inline;
     float: left;
-    margin: 50px 0;
     width: 100%;
 }
 
@@ -1414,7 +1394,6 @@ img {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 0;
     margin: 0 auto;
     width: 100%;
 
@@ -1427,7 +1406,7 @@ img {
 .blog-news-img {
     display: inline;
     float: left;
-    height: 270px;
+    height: 330px;
     width: 100%;
 }
 
@@ -1589,7 +1568,7 @@ img {
 
 
 #footer {
-    background-color: #171717;
+    background-color: #F7F7F7;
     display: inline;
     float: left;
     padding: 35px 0 0 0;
@@ -1704,7 +1683,7 @@ img {
 }
 
 .portfolio-menu ul li {
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
@@ -1827,7 +1806,8 @@ img {
 }
 
 .blog-archive-left .blog-news-img {
-    height: 350px;
+    height: 430px;
+    width: 50%;
 }
 
 .blog-pagination {
@@ -1850,7 +1830,7 @@ img {
 
 .pagination-nav li a {
     color: #555;
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     display: inline-block;
     margin: 0 5px;
     padding: 5px 13px;
@@ -1969,7 +1949,7 @@ img {
 }
 
 .tag-cloud a {
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     display: inline-block;
     font-size: 15px;
     margin-bottom: 8px;
@@ -2083,7 +2063,7 @@ img {
 }
 
 .blog-single-social a {
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     display: inline-block;
     font-size: 14px;
     margin-right: 5px;
@@ -2117,7 +2097,7 @@ img {
 }
 
 .blog-navigation-prev a {
-    border-left: 2px solid #ccc;
+    border-left: 2px solid  black;
     display: inline-block;
     padding-left: 15px;
 }
@@ -2145,7 +2125,7 @@ img {
 }
 
 .blog-navigation-next a {
-    border-right: 2px solid #ccc;
+    border-right: 2px solid  black;
     display: inline-block;
     padding-right: 15px;
 }
@@ -2225,7 +2205,7 @@ img {
 .comment-btn {
     padding: 10px 15px;
     outline: none;
-    border: 1px solid #ccc;
+    border: 1px solid  black;
     background-color: #fff;
     color: #222;
     text-transform: uppercase;
@@ -2261,23 +2241,6 @@ img {
     display: inline;
     float: left;
     width: 100%;
-}
-
-.contact-area-left h4 {
-    color: #333;
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.contact-area-left h4::after {
-    content: "";
-    height: 2px;
-    left: 0;
-    position: absolute;
-    bottom: -5px;
-    width: 30px;
 }
 
 .contact-area-left p {
@@ -2401,6 +2364,10 @@ img {
 
 
 @media (max-width: 991px ) {
+    .blog-archive-left .blog-news-img {
+        height: 500px;
+        width: 100%;
+    }
     #menu-area {
         margin: 5px 0;
     }
@@ -2713,7 +2680,7 @@ img {
     }
 
     .single-slide {
-        height: 200px;
+        height: 100%;
     }
 
     .single-slide img {
@@ -2824,7 +2791,6 @@ img {
 
     .phone {
         font-size: 12px;
-        width: 135%;
     }
 
 }
@@ -2860,7 +2826,7 @@ img {
     }
 
     .blog-archive-left .blog-news-img {
-        height: 220px;
+        height: 240px;
     }
 }
 
@@ -2931,7 +2897,7 @@ img {
 }
 
 #signup-content .modal-title {
-    color: #1e7bb7;
+    color: #006BE6;
     font-size: 20px;
     margin-top: 40px;
 }
@@ -2994,6 +2960,7 @@ img {
     width: 100%;
     border-radius: 30px;
     color: #2e343b;
+    background-color: white;
 }
 
 @media (max-width: 500px) {
@@ -3036,7 +3003,6 @@ img {
 @media (max-width: 380px) {
     .phone {
         border-right: 1px solid #e4e4e4;
-        padding: 10px 5px !important;
     }
 
     .phone a {
@@ -3057,7 +3023,7 @@ img {
 
 button.btn.signup-btn_02 {
     margin: 0 10px;
-    background: linear-gradient(14deg, #60aaea 0%, #1e7bb7);
+    background: linear-gradient(14deg, #60aaea 0%, #006BE6);
     color: #fff;
     -webkit-box-shadow: 0 7px 14px 0 rgba(0, 79, 135, 0.5);
     box-shadow: 0 7px 14px 0 rgba(0, 79, 135, 0.5);
@@ -3071,7 +3037,23 @@ button.btn.signup-btn_02 {
 }
 
 button.btn.signup-btn_02:hover {
-    background: linear-gradient(0deg, #1e7bb7 0%, #8cb6f5 50%);
+    background: linear-gradient(0deg, #006BE6 0%, #8cb6f5 50%);
 }
 
+@media (max-width: 1221px) {
+    .blog-news-img{
+        height: 290px;
+    }
+    .mr_4{
+        margin-right: 0 !important;
+    }
+}
+@media (max-width: 1170px) {
+    .blog-news-img{
+        height: 290px;
+    }
+    .sp_mob{
+        justify-content: center;
+    }
+}
 

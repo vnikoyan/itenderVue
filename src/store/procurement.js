@@ -97,15 +97,11 @@ const actions = {
     //   is_condition: procurement.is_condition,
     // }
     // eslint-disable-next-line no-undef
-    return $client.put('procurement-plan/' + payload.rowId, payload.data).then(response => {
-      return response
-    })
+    return $client.put('procurement-plan/' + payload.rowId, payload.data)
   },
   updateDetails({ commit }, payload) {
     // eslint-disable-next-line no-undef
-    return $client.put(`procurement-plan/editDetails/${payload.detailsId}`, payload.data).then(response => {
-      return response
-    })
+    return $client.put(`procurement-plan/editDetails/${payload.detailsId}`, payload.data)
   },
   approveRow({ dispatch, commit }, rowId) {
     return dispatch('setRowStatus', {rowId, status: 1})
@@ -126,6 +122,12 @@ const actions = {
     // eslint-disable-next-line no-undef
     return $client.post('procurement', procurement).then(response => {
       dispatch('getPlans', response.data.data.id)
+      return response
+    })
+  },
+  delete({ dispatch, commit }, procurementId) {
+    return $client.delete(`procurement/${procurementId}`).then(response => {
+      dispatch('getPlans')
       return response
     })
   },

@@ -1,98 +1,165 @@
 <template>
-    <section id="latest-news01">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="title-area">
-                        <h2 class="title">{{ $t('home.latest-news.title') }}</h2>
-                        <span class="line"></span>
-                        <p>{{ $t('home.latest-news.subtitle') }}</p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="latest-news-content" v-if="news.length">
-                            <VueSlickCarousel v-bind="settings" class="row latest-news-content__sider_1" >
-                                <div :key="item.id" class="col-md-12" v-for="item in news">
-                                    <article class="blog-news-single">
-                                        <div class="blog-news-img">
-                                            <router-link :to="`new/${item.id}`" >
-                                                <img :src="`${item.image}`" :alt="`${item.title[$i18n.locale]}`">
-                                            </router-link>
-                                        </div>
-                                        <div class="blog-news-title">
-                                            <h2><router-link :to="`new/${item.id}`" >{{item.title[$i18n.locale]}}</router-link></h2>
-                                        </div>
-                                        <div class="blog-news-details">
-                                            <!-- <p html="item.description"></p> -->
-                                            <router-link :to="`new/${item.id}`" class="blog-more-btn" >{{ $t('home.btn_read_more') }}
-                                                <i class="fa fa-long-arrow-right"></i>
-                                            </router-link>
-                                        </div>
-                                    </article>
-                                </div>
-                            </VueSlickCarousel>
-                    </div>
+    <section id="news" class="block-container">
+        <div class="news-block"> 
+            <div>
+                <h1 class="main-title">Վերջին նորությունները</h1>
+                <div class="text-distance">
+                    <p class="text-center mb-0 main-content-styles">Հետևեք համակարգի նորություններին</p>
                 </div>
             </div>
+            <div class="news-distance">
+                <template v-for="(item, index) in news">      
+                    <template>
+                        <div :key="index + Math.random()" class="news-block-item content">
+                            <div class="text-center">
+                                <router-link :to="`new/${item.id}`" >
+                                    <img class="news-images" :src="`${item.image}`" :alt="`${item.title[$i18n.locale]}`">
+                                </router-link>
+                            </div>
+                            <router-link :to="`new/${item.id}`">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h2 class="news-title h5">{{item.newsTitle}}</h2>
+                                    <img src="assets/landing/images/more.svg" alt="arrow icon" class="mr-3">
+                                </div>
+                                <p v-html="item.newsContent" class="news-content"></p>
+                            </router-link>
+                        </div>
+                    </template>        
+                </template>
+            </div>
+            <!-- <div class="loadMore">
+                <button class="button_H48_more" id="loadMore" @click="showMore">Տեսնել ավելին</button>
+            </div> -->
         </div>
-
     </section>
 </template>
 
 <script>
-
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import WOW from 'wowjs';
-
+import $ from 'jquery';
 export default {
-    mounted() {
-        new WOW.WOW({
-            live: false
-        }).init();
-        this.$store.dispatch('news/get')
-    },
     computed: {
         news() {
-            return this.$store.getters['news/event']
+            const news = this.$store.getters['news/event']
+            news.forEach((item,index) => {
+                item.newsContent = item.description.hy
+                if(item.newsContent.length >= 85){
+                    item.newsContent = item.newsContent.substring(0,85)
+                    item.newsContent = item.newsContent.concat(' ...')
+                }
+
+                item.newsTitle = item.title.hy
+                if(item.newsTitle.length >= 50){
+                    item.newsTitle = item.newsTitle.substring(0,50)
+                    item.newsTitle = item.newsTitle.concat(' ...')
+                }
+            })
+            return news;
         }
     },
+    async mounted(){
+        $(".content").slice(0, 3).show()
+        if($(".content:hidden").length === 0){
+            $("#loadMore").prop('disabled', true).addClass("noContent")
+        }else{
+            $("#loadMore").prop('disabled', false)
+        }
+        await this.$store.dispatch('news/get')
+    },
     data() {
-
       return {
-        settings: {
-            "dots": true,
-            "arrow": true,
-            "slidesToShow": 3,
-            "responsive":[
-                 {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-         }
+          newsContent: null,
+          newsTitle: null,
       }
     },
+    methods: {
+        showMore(e){
+            e.preventDefault()
+            $(".content:hidden").slice(0, 3).slideDown()
+            if($(".content:hidden").length === 0){
+                $("#loadMore").prop('disabled', true).addClass("noContent")
+            }else{
+                $("#loadMore").prop('disabled', false)
+            }
+        }
+    },
     name: 'News',
-    components: { VueSlickCarousel},
   }
 </script>
+
+<style scoped>
+    .news-block{
+        padding: 60px 0;
+    }
+    .text-distance{
+        margin-top: 15px;
+    }
+    .news-images{
+        width: 350px;
+        height: 300px;
+    }
+    .news-block-item{
+        width: 320px;
+    }
+    .news-content{
+        color: #595E6B;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .news-title{
+        color: #2D3036;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        margin-right: 10px;
+    }
+    .loadMore{
+        margin-top: 55px;
+        display: flex;
+        justify-content: center;
+    }
+    .news-distance{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: stretch !important;
+    }
+    .news-distance > div{
+        margin-top: 40px;
+        width: calc(100% / 3 - 20px);
+    }
+    .show-more__item{
+        display: none;
+    }
+    @media only screen and (max-width: 950px) {
+        .news-distance > div{
+            width: calc(100% / 2 - 20px);
+        }
+        .news-images{
+            width: 340px;
+            height: 320px;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .news-images{
+            width: 260px;
+            height: 250px;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        .news-distance{
+            display: flex;
+            justify-content: center;
+        }
+        .news-distance > div{
+            width: 100%;
+        }
+        .news-images{
+            height: auto;
+        }
+    }
+
+
+</style>

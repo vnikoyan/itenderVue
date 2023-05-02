@@ -13,7 +13,6 @@ const actions = {
 
     // eslint-disable-next-line no-undef
     return $client.get('info').then(response => {
-      console.log(response)
       commit('setEnfo', response.data.data)    
     })
   }

@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="single-page-header-left">
                     <h2>ՎԵՐՋԻՆ ՆՈՐՈՒԹՅՈՒՆՆԵՐԸ</h2>
-                    <p>Համակարգում առկա է պետական մրցույթներին մասնակցության հայտերի ավտոմատ պատրաստման գործիք</p>
+                    <p>Հետևեք համակարգի նորություններին</p>
                 </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -39,32 +39,9 @@
                                             </div>
                                             <div class="blog-news-title">
                                                 <h2>{{news.title[$i18n.locale]}}</h2>
-                                                <p>By <a class="blog-author" href="#">Admin</a> <span class="blog-date">|{{news.created_at}}</span></p>
+                                                <!-- <p>By <a class="blog-author" href="#">Admin</a> <span class="blog-date">|{{news.created_at}}</span></p> -->
                                             </div>
                                             <div class="blog-news-details blog-single-details" v-html="news.description[$i18n.locale]"></div>
-                                            <div class="blog-news-details blog-single-details">
-                                                <div class="blog-single-bottom">
-                                                    <div class="row">
-                                                        <div class="col-md-8">
-                                                        <div class="blog-single-tag">
-                                                            <span class="fa fa-tags"></span>
-                                                            <a href="#">Design,</a>
-                                                            <a href="#">Photoshop,</a>
-                                                            <a href="#">Development</a>
-                                                        </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                        <div class="blog-single-social">
-                                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </article>
                                     </div>
                                 </div>
@@ -82,7 +59,9 @@
 
 export default {
     mounted() {
-        this.$store.dispatch('news/show',this.$route.params.id)
+        this.$store.dispatch('news/show',this.$route.params.id).catch((value) => {
+            this.$router.push('/')
+        })
     },
     computed: {
         news() {

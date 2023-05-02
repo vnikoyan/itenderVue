@@ -681,7 +681,6 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 .fc-button {
   display: inline-block;
   font-weight: 400;
-  color: #212529;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -882,7 +881,7 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 .fc thead,
 .fc tbody,
 .fc-row {
-    border-color: #ccc !important;
+    border-color:  black !important;
     background: #fff !important;
   }
 

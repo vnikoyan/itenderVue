@@ -24,7 +24,7 @@
 /deep/ .VuePagination__pagination-item .active {
   z-index: 1;
   color: #fff;
-  background-color: #506ee4;
-  border-color: #007bff;
+  background-color: #006BE6;
+  border-color: #006BE6;
 }
 </style>

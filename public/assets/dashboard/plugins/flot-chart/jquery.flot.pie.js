@@ -42,7 +42,7 @@ The plugin supports these options:
             },
             combine: {
                 threshold: 0-1 for the percentage value at which to combine slices (if they're too small)
-                color: any hexidecimal color value (other formats may or may not work, so best to stick with something like '#CCC'), if null, the plugin will automatically use the color of the first slice to be combined
+                color: any hexidecimal color value (other formats may or may not work, so best to stick with something like ' black'), if null, the plugin will automatically use the color of the first slice to be combined
                 label: any text value of what the combined slice should be labeled
             }
             highlight: {

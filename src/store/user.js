@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// import store from '../store'
 
 const state = {
   locale: localStorage.getItem('locale') || 'hy',
@@ -6,14 +7,19 @@ const state = {
   rootUser: {},
   userChildren: [],
   userGroup: {},
+  menuNotifications: {},
+  notifications: {},
   responsibleUnits: []
 }
 
 const getters = {
+  menuNotifications: state => state.menuNotifications,
+  notifications: state => state.notifications,
   locale: state => state.locale,
   me: state => state.me,
   rootUser: state => state.rootUser,
   userChildren: state => state.userChildren,
+  userGroup: state => state.userGroup,
   isRoot: state => state.me.id === state.rootUser.id,
   division: state => {
     const division = {id: state.me.divisions}
@@ -33,18 +39,34 @@ const actions = {
     localStorage.setItem('locale', locale)
     commit('setLocale', locale)
   },
-  async me({ commit }) {
-    let me = JSON.parse(localStorage.getItem('me'))
-    // eslint-disable-next-line no-undef
-    if(_.isEmpty(me)) {
-      // eslint-disable-next-line no-undef
-      me = (await $client.get('me')).data.data
-    }
-    commit('setMe', me)
-    localStorage.setItem('me', JSON.stringify(me))
+  async me({ dispatch, commit }) {
+    // let me = JSON.parse(localStorage.getItem('me'))
+    // // eslint-disable-next-line no-undef
+    // if(_.isEmpty(me)) {
+    //   // eslint-disable-next-line no-undef
+    //   me = (await $client.get('me')).data.data
+    // }
 
-    return new Promise((resolve) => {
-      resolve(me)
+    $client.get('checkAuth').catch((value) => {
+      dispatch('logout', null, { root: true })
+    });
+
+    $client.get('me').then(({data}) => {
+      const me = data.data;
+      // const me = (await $client.get('me')).data.data
+  
+      commit('setMe', me)
+      localStorage.setItem('userPackage', me.package)
+      localStorage.setItem('me', JSON.stringify(me))
+  
+      return new Promise((resolve) => {
+        resolve(me)
+      })
+      
+    }).catch(({data: {message}}) => {
+      if(message === "Unauthorized" || message === 'Account is blocked'){
+        dispatch('logout', null, { root: true })
+      }
     })
   },
   getRoot({ commit }) {
@@ -53,7 +75,7 @@ const actions = {
       commit('setRootUser', response.data.data)
     })
   },
-  getChild({ commit }) {
+  getChild({ dispatch, commit }) {
     // eslint-disable-next-line no-undef
     return $client.get('user/user-child').then(response => {
       commit('setUserChildren', response.data.data)
@@ -65,8 +87,17 @@ const actions = {
       commit('setUserGroup', response.data.data)
     })
   },
+  getMenuNotifications({ commit }) {
+    return $client.get('user/menu-notifications').then(response => {
+      commit('menuNotifications', response.data)
+    })
+  },
+  getNotifications({ commit }) {
+    return $client.get('user/notifications').then(response => {
+      commit('notifications', response.data)
+    })
+  },
   userEdit ({ dispatch, commit }, payload) {
-    // eslint-disable-next-line no-undef
     return $client.put('user', payload.fields)
       .then(({ status, data: { data } }) => {
         console.log(data);
@@ -81,12 +112,19 @@ const actions = {
       })
   },
   createResponsibleUnit({ dispatch }, { newDivision, members }) {
+    console.log(newDivision)
     const data = {
+      username: newDivision.username,
+      email: newDivision.email,
+      password: newDivision.password,
       name: {
         hy: newDivision.firstName.hy + ' ' + newDivision.lastName.hy,
         ru: newDivision.firstName.ru + ' ' + newDivision.lastName.ru
       },
-      email: newDivision.email,
+      position: {
+        hy: newDivision.position.hy, 
+        ru: newDivision.position.ru 
+      },
       members: members.map(member => {
         return {
           name: {
@@ -99,9 +137,9 @@ const actions = {
     }
     // eslint-disable-next-line no-undef
     return $client.post('/user/responsible', data).then(response => {
-      console.log(response, 'create resp. unit')
       if(response.data.status) {
         dispatch('getResponsibleUnits')
+        dispatch('getChild')
       }
       return response
     })
@@ -149,6 +187,15 @@ const actions = {
 }
 
 const mutations = {
+  
+  menuNotifications(state, menuNotifications) {
+    // eslint-disable-next-line no-undef
+    Vue.set(state, 'menuNotifications', _.clone(menuNotifications))
+  },
+  notifications(state, notifications) {
+    // eslint-disable-next-line no-undef
+    Vue.set(state, 'notifications', _.clone(notifications))
+  },
   setLocale(state, locale) {
     // eslint-disable-next-line no-undef
     Vue.set(state, 'locale', _.clone(locale))

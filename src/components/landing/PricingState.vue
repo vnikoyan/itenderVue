@@ -205,8 +205,6 @@ export default {
         new WOW.WOW({
             live: false
         }).init();
-        console.log('Component mounted.')
-
     },
     data() {
       return {

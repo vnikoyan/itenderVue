@@ -9,6 +9,13 @@ import procurement from './procurement'
 import pricing from './pricing'
 import info from './info'
 import settings from './settings'
+import organize from './organize'
+import organizeOnePerson from './organizeOnePerson'
+import organizeItender from './organizeItender'
+import suggestions from './suggestions'
+import categories from './categories'
+import faq from './faq'
+import protest from './protest'
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
@@ -24,6 +31,13 @@ export default new Vuex.Store({
     tender,
     info,
     settings,
+    organize,
+    organizeOnePerson,
+    organizeItender,
+    suggestions,
+    categories,
+    faq,
+    protest
   },
   strict: debug
 })

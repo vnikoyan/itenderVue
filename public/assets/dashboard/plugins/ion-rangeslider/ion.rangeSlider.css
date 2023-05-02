@@ -234,7 +234,7 @@ Build date: 2019-12-19 16:51:02
   height: 12px;
   background-color: white;
   background: linear-gradient(to bottom, #ddd -50%, white 150%);
-  border: 1px solid #ccc;
+  border: 1px solid  black;
   border-radius: 12px;
 }
 .irs--big .irs-bar {

@@ -13,20 +13,16 @@ export default {
         allowedKeyCodes.push(190, 110)
       }
 
-      const lowerLimit = binding.modifiers.none_zero 
-      // eslint-disable-next-line no-undef
-        && e.target.selectionStart === 0 ? 49 : 48
-      const upperLimit = binding.modifiers.none_zero 
-        // eslint-disable-next-line no-undef
-        && e.target.selectionStart === 0 ? 97 : 96
+      const lowerLimit = binding.modifiers.none_zero && e.target.selectionStart === 0 ? 49 : 48
+      const upperLimit = binding.modifiers.none_zero && e.target.selectionStart === 0 ? 97 : 96
 
       if (allowedKeyCodes.indexOf(e.keyCode) !== -1 ||
         // Allow: Ctrl+A
-        (e.keyCode === 65 && e.ctrlKey === true) ||
+        (e.keyCode === 65 && e.ctrlKey) ||
         // Allow: Ctrl+C
-        (e.keyCode === 67 && e.ctrlKey === true) ||
+        (e.keyCode === 67 && e.ctrlKey) ||
         // Allow: Ctrl+X
-        (e.keyCode === 88 && e.ctrlKey === true) ||
+        (e.keyCode === 88 && e.ctrlKey) ||
         // Allow: home, end, left, right
         (e.keyCode >= 35 && e.keyCode <= 40)) {
         // let it happen, don't do anything

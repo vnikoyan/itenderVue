@@ -77,6 +77,8 @@ const actions = {
             out_count: 0,
             type: 1,
             classifier_cpv: cpv.classifier_cpv,
+            financial_classifier: null,
+            classifier: null,
             financial_classifier_id: null,
             classifier_id: null,
           }],

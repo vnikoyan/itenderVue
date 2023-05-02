@@ -1,0 +1,1003 @@
+<template>
+    <div id="commandment-file" ref="contract"
+        style="line-height: 2; width: 100%">
+        <section slot="pdf-content" contenteditable="true">
+            <div class="col-md-12">
+                <div class="info-block">
+                    <h6 style="margin-top: 3rem; text-align: center; font-weight: 700">ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆԱԳԻՐ</h6>
+                    <h6 style="text-align: center; font-weight: 700">N<span class="contract-code" style="color: rgb(17, 85, 204);"> {{ currentOrganized.code }}</span></h6>
+                    <div class="col-md-12 d-flex" style="padding: 0 !important">
+                        <table style="width: 100%; border: none !important">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none !important;" class="ft-11">
+                                         <span style="color: rgb(17, 85, 204);">{{ me.organisation[0].translations.city.hy }}</span>
+                                    </td>
+                                    <td class="ft-11"  style="border:none !important; text-align: right; float: right">
+                                        <span style="color: rgb(17, 85, 204);" class="sign-date">__.__.____</span>թ.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h6 style="text-align: justify">
+                        <span style="color: rgb(17, 85, 204);">« {{ me.organisation[0].translations.name.hy }} » {{ me.organisation[0].translations.company_type.hy }}</span>-ը, ի դեմս
+                        տնօրեն <span style="color: rgb(17, 85, 204);">{{ me.organisation[0].translations.director_name.hy }}</span>-ի, որը գործում է 
+                        <span style="color: rgb(17, 85, 204);">« {{ me.organisation[0].translations.name.hy }} » {{ me.organisation[0].translations.company_type.hy }}</span>
+                        կանոնադրության հիման վրա (այսուհետ՝ Պատվիրատու), մի կողմից, և  
+                        <span class="winner-name">_______</span>-ն, ի դեմս տնօրեն<span class="winner-director">_______</span>ի, 
+                        որը գործում է <span class="winner-name">_______</span> կանոնադրության հիման վրա (այսուհետ՝ Կատարող), մյուս կողմից,
+                        կնքեցին սույն պայմանագիրը հետևյալի մասին։
+                    </h6>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">1. ՊԱՅՄԱՆԱԳՐԻ ԱՌԱՐԿԱՆ</div>
+                <br>
+                <div class="info-block">
+                    <div style="margin: 0; text-align: justify">
+                        <span style="margin-left: 25px;"/>1.1 Պատվիրատուն հանձնարարում է, իսկ Կատարողը ստանձնում է 
+                        <editor-input type="text" inputName="work_names" ref="work_names" v-model="$v.inputs.work_names.$model" />
+                        ծառայությունների մատուցման պարտավորությունը (այսուհետ` ծառայություն)` համաձայն սույն պայմանագրի (այսուհետ` պայմանագիր)  անբաժանելի մասը կազմող N 1 հավելվածով սահմանված Տեխնիկական բնութագիր-գնման ժամանակացույցի պահանջների։
+                        <br/><span style="margin-left: 25px;"/>1.2 Ծառայությունը մատուցվում է պայմանագրի N 1 հավելվածով սահմանված Տեխնիկական բնութագիր-գնման ժամանակացույցին համապատասխան և սահմանված ժամկետներով։
+                    </div>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">2. ԿՈՂՄԵՐԻ ԻՐԱՎՈՒՆՔՆԵՐԸ ԵՎ ՊԱՐՏԱԿԱՆՈՒԹՅՈՒՆՆԵՐԸ</div>
+                <br>
+                <div class="info-block">
+                    <div style="text-align: justify">
+                        <span style="margin-left: 25px;"/><span style="font-weight: 700">2.1 Պատվիրատուն իրավունք ունի`</span>
+                        <br/><span style="margin-left: 25px;"/>2.1.1 Ցանկացած ժամանակ ստուգել Կատարողի կողմից մատուցվող ծառայության ընթացքը և որակը` առանց միջամտելու Կատարողի գործունեությանը.
+                        <br/><span style="margin-left: 25px;"/>2.1.2 Եթե մատուցվել է պայմանագրի N 1 հավելվածում նշված Տեխնիկական բնութագիր-գնման ժամանակացույցին չհամապատասխանող ծառայություն.
+                        <br/><span style="margin-left: 25px;"/>ա) Չընդունել ծառայությունը՝ իր հայեցողությամբ սահմանելով անպատշաճ որակի ծառայությունը  պայմանագրին համապատասխանող ծառայությամբ անհատույց փոխարինման ողջամիտ ժամկետ և պահանջել Կատարողից վճարելու պայմանագրի 5.2 կետով նախատեսված տուգանքը, ինչպես նաև 5.3 կետով նախատեսված տույժը.
+                        <br/><span style="margin-left: 25px;"/>բ) Հրաժարվել պայմանագիրը կատարելուց և պահանջել վերադարձնելու ծառայության համար վճարված գումարը և պահանջել Կատարողից վճարելու պայմանագրի 5.2 կետով նախատեսված տուգանքը.
+                        <br/><span style="margin-left: 25px;"/>2.1.3 Միակողմանի լուծել պայմանագիրը, եթե Կատարողն էականորեն խախտել է պայմանագիրը։ Կատարողի կողմից պայմանագիրը խախտելն էական է համարվում, եթե՝
+                        <br/><span style="margin-left: 25px;"/>ա) մատուցված ծառայությունը չի համապատասխանում պայմանագրի N 1 հավելվածով սահմանված պահանջներին,
+                        <br/><span style="margin-left: 25px;"/>բ) խախտվել է ծառայության մատուցման ժամկետը։
+                    </div>
+                    <div style="margin-top: 10px;text-align: justify">
+                        <span style="margin-left: 25px;"/><span style="font-weight: 700">2.2 Պատվիրատուն պարտավոր է`</span>
+                        <br/><span style="margin-left: 25px;"/>2.2.1 Քննարկել և ընդունել Տեխնիկական բնութագիր-գնման ժամանակացույցին համապատասխան մատուցված ծառայության արդյունքը, իսկ ծառայության արդյունքում թերություններ հայտնաբերելու դեպքերում` այդ մասին անհապաղ գրավոր հայտնել Կատարողին։
+                        <br/><span style="margin-left: 25px;"/>2.2.2 Ծառայության արդյունքն ընդունելու դեպքում Կատարողին վճարել վերջինիս վճարման ենթակա գումարները, իսկ ժամկետի խախտման դեպքում` նաև պայմանագրի 5.5 կետով նախատեսված տույժը։
+                    </div>
+                    <div style="margin-top: 10px;text-align: justify">
+                        <span style="margin-left: 25px;"/><span style="font-weight: 700">2.3 Կատարողն իրավունք ունի`</span>
+                        <br/><span style="margin-left: 25px;"/>2.3.1 Պատվիրատուից պահանջել վճարելու իրեն վճարման ենթակա գումարները, իսկ Պատվիրատուի կողմից պայմանագրի 4.2 կետում նշված ժամկետի խախտման դեպքում նաև պայմանագրի 5.5 կետով նախատեսված տույժը։
+                    </div>
+                    <div style="margin-top: 10px;text-align: justify">
+                        <span style="margin-left: 25px;"/><span style="font-weight: 700">2.4 Կատարողը պարտավոր է`</span>
+                        <br/><span style="margin-left: 25px;"/>2.4.1 Պայմանագրի N 1 հավելվածով սահմանված պայմաններով ապահովել ծառայության մատուցումը` ղեկավարվելով գործող օրենսդրությամբ։
+                        <br/><span style="margin-left: 25px;"/>2.4.2 Պայմանագրով նախատեսված դեպքերում վճարել պայմանագրի 5.2 և 5.3 կետերով նախատեսված տույժը և տուգանքը։
+                        <br/><span style="margin-left: 25px;"/>2.4.3 Որակավորման և պայմանագրի կատարման ապահովման գործողության ընթացքում լուծարման կամ սնանկացման գործընթաց սկսելու դեպքում դրա մասին նախապես գրավոր տեղեկացնել Պատվիրատուին։
+                        <span style="color: rgb(17, 85, 204);">
+                            <br/><span style="margin-left: 25px;"/>2.4.4 Շինարարական աշխատանքների կատարման ընթացքում նախագծային շեղումներ առաջանալու դեպ-քում Կատարողը Պատվիրատուին վճարում է տուգանք՝ յուրաքանչյուր արձանագրված շեղման հետևանքով առաջացած կորստի չափով: Ընդ որում՝
+                        </span>
+                        <span style="color: rgb(17, 85, 204);">
+                            <br/><span style="margin-left: 25px;"/>ա) շեղում է համարվում շինարարական աշխատանքների կատարման ընթացքում սկզբնական նախագծի տասը տոկոսը գերազանցող լրացուցիչ ծավալի աշխատանքների ի հայտ գալը, իսկ տուգանքի չափը հավասար է լրացուցիչ ծավալի աշխատանքների արժեքի քսանհինգ տոկոսին,
+                        </span>
+                        <span style="color: rgb(17, 85, 204);">
+                            <br/><span style="margin-left: 25px;"/>բ) կորուստ են համարվում նախագծային այնպիսի շեղումները, որոնք հանգեցնում են փաստացի կատարված աշխատանքների փոփոխմանը (քանդման, վերակառուցման և այլն) և լրացուցիչ աշխատանքների կատարմանը, իսկ տուգանքի չափը հավասար է կորստի հանգեցրած՝ փաստացի կատարված աշխատանքների արժեքի հիսուն տոկոսին:
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">3. ԾԱՌԱՅՈՒԹՅԱՆ ՀԱՆՁՆՄԱՆ ԵՎ ԸՆԴՈՒՆՄԱՆ ԿԱՐԳԸ</div>
+                <br>
+                <div class="info-block">
+                    <h6 style="margin: 0; text-align: justify">
+                        <template>
+                                <span style="margin-left: 25px;"/>3.1 Մատուցված ծառայությունն ընդունվում է Պատվիրատուի և Կատարողի միջև հանձնման-ընդունման արձանագրության ստորագրմամբ: Ծառայությունը Պատվիրատուին հանձնելու փաստը ֆիքսվում է Պատվիրատուի և Կատարողի միջև երկկողմ հաստատված փաստաթղթով՝ նշելով փաստաթղթի կազմման ամսաթիվը:
+                                <br/><span style="margin-left: 25px;"/>Մինչև պայմանագրով ծառայության մատուցման համար նախատեսված օրը ներառյալ Կատարողը Պատվիրատուին է տրամադրում իր կողմից ստորագրված <span style="color: rgb(17, 85, 204);"> ծառայությունը Պատվիրատուին հանձնելու փաստը ֆիքսող փաստաթուղթը (հավելված N 3.1) և հանձնման-ընդունման արձանագրության
+                                <input type="text"
+                                    class="editor-input"
+                                    v-model="$v.inputs.daysCount.$model"
+                                    ref="daysCount"
+                                    inputName="daysCount"
+                                    style="width: 40px;border-top: 0 !important; border-left: 0 !important; border-right: 0 !important; text-align: right;   
+                                    font-size: 13px;
+                                    color: #303e67;
+                                    border-bottom: 1px solid black
+                                    "
+                                />
+                                օրինակ (հավելված N 3): </span>
+                                <span style="color: rgb(17, 85, 204);">
+                                    <br/><span style="margin-left: 25px;"/>3.2 Հանձնման-ընդունման արձանագրությունն ստորագրվում է, եթե մատուցված ծառայությունը համապատասխանում է պայմանագրի պայմաններին։ Հակառակ դեպքում պայմանագրի կամ դրա մի մասի կատարման արդյունքները չեն ընդունվում, հանձնման-ընդունման արձանագրությունը չի ստորագրվում և Պատվիրատուն
+                                </span>
+                                <br/><span style="margin-left: 50px;"/>ա) հարցի կարգավորման համար ձեռնարկում է նման իրավիճակի համար պայմանագրով նախատեսված միջոցները.
+                                <br/><span style="margin-left: 50px;"/>բ) Կատարողի նկատմամբ կիրառում է պայմանագրով նախատեսված պատասխանատվության միջոցներ։
+                                <br/><span style="margin-left: 25px;"/>3.3 Պատվիրատուն հանձնման-ընդունման արձանագրությունը ստանալու օրվան հաջորդող աշխատանքային օրվանից հաշված 
+                                <input type="text"
+                                    class="editor-input"
+                                    v-model="$v.inputs.daysCount.$model"
+                                    ref="daysCount"
+                                    inputName="daysCount"
+                                    style="width: 30px;border-top: 0 !important; border-left: 0 !important; border-right: 0 !important; text-align: right;   
+                                    font-size: 13px;
+                                    color: #303e67;
+                                    border-bottom: 1px solid black"
+                                    onkeypress="this.style.width = ((this.value.length + 1) * 8 + 2) + 'px';"
+                                />
+                                աշխատանքային օրվա ընթացքում Կատարողին է ներկայացնում իր կողմից ստորագրված հանձնման-ընդունման արձանագրության մեկ օրինակը կամ ծառայությունը չընդունելու պատճառաբանված մերժումը։
+                                <br/><span style="margin-left: 25px;"/>3.4 Եթե պայմանագրի 3.3 կետով սահմանված ժամկետում Պատվիրատուն չի ընդունում մատուցված ծառայությունը կամ չի մերժում դրա ընդունումը, ապա մատուցված ծառայությունը համարվում է ընդունված և պայմանագրի 3.3 կետով սահմանված վերջնաժամկետին հաջորդող աշխատանքային օրը Պատվիրատուն Կատարողին է տրամադրում իր կողմից հաստատված հանձնման-ընդունման արձանագրությունը:
+                        </template>
+                    </h6>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">4. ՊԱՅՄԱՆԱԳՐԻ ԳԻՆԸ</div>
+                <br>
+                <div class="info-block">
+                    <div style="text-align: justify">
+                        <span style="margin-left: 25px;"/>4.1.Պայմանագրով Կատարողի կատարման ենթակա ծառայության գինը կազմում է <span class="contract-price">_______</span> (<span class="contract-price-word">______________</span>) ՀՀ դրամ <span class="contract-det"></span>
+                        <br/><span style="margin-left: 25px;"/>Գինը ներառում է Կատարողի կողմից իրականացվող բոլոր ծախսերը` այդ թվում հարկերը, տուրքերը և ՀՀ օրենդրությամբ սահմանված այլ վճարները
+                        <span class="if-phys-person">, ընդ որում` հարկային պարտավորությունները (հարկեր և պարտադիր այլ վճարներ) վճարվում են հարկային գործակալի` Գնորդի կողմից</span>:
+                        Ծառայության մատուցման գինը կայուն է և Կատարողն իրավունք չունի պահանջել ավելացնելու, իսկ Պատվիրատուն նվազեցնելու այդ գինը։
+                        <br/><span style="margin-left: 25px;"/>Ծառայության մատուցման գինը կայուն է և Կատարողն իրավունք չունի պահանջել ավելացնելու, իսկ Պատվիրատուն նվազեցնելու այդ գինը։
+                        <template v-if="+currentOrganized.prepayment">
+                            <span style="margin-left: 25px;"/> 4.1.1 Պայմանագրի գնից` մինչև {{ currentOrganized.prepayment_max }} ({{ currentOrganized.prepayment_max_text }}) ՀՀ դրամը, Պատվիրատուն փոխանցում է Կատարողի բանկային հաշվին` որպես կանխավճար։ Կանխավճարի մարումն իրականացվում է  հանձնման-ընդունման արձանագրությունների հիման վրա կատարվող վճարումներից նվազեցումներ (պահումներ) կատարելու ձևով։ Ընդ որում մինչև կանխավճարի ամբողջական մարումը, Կատարողին վճարումներ չեն կատարվում:
+                        </template>
+                        <br/><span style="margin-left: 25px;"/>4.2 Պատվիրատուն իրեն մատուցած ծառայության դիմաց վճարում է ՀՀ դրամով անկանխիկ` դրամական միջոցները Կատարողի հաշվարկային հաշվին փոխանցելու միջոցով։ Դրամական միջոցների փոխանցումը կատարվում է հանձման-ընդունման արձանագրության հիման վրա` պայմանագրի վճարման  ժամանակացույցով (հավելված N 2) նախատեսված չափերով և ամիներին:
+                        <span style="color: rgb(17, 85, 204);">
+                            <br/><span style="margin-left: 25px;"/>Ավտոմեքենաների, սարքերի և սարքավորումների վերանորոգման ծառայությունների դեպքում,  մատուցված ծառայությունների դիմաց վճարումներին իրականացվում են հետևյալ բանաձևով՝ ՎԳ=ՄԳ/ՆԳxԾxՔ, որտեղ՝
+                            <br/><span style="margin-left: 25px;"/>ՎԳ-ն պայմանագրով սահմանված առանձին տեսակի ծառայությունների մատուցման դիմաց վճարվող գումարն է.
+                            <br/><span style="margin-left: 25px;"/>ՄԳ-ն ընտրված մասնակցի առաջարկած հանրագումարային գինն է.
+                            <br/><span style="margin-left: 25px;"/>ՆԳ-ն ծառայության մատուցման համար սահմանված առավելագույն միավոր գների հանրագումարն է.
+                            <br/><span style="margin-left: 25px;"/>Ծ-ն մատուցված ծառայության առավելագույն միավորի գինն է.
+                            <br/><span style="margin-left: 25px;"/>Ք-ն մատուցված ծառայության քանակն է:
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">5. ԿՈՂՄԵՐԻ ՊԱՏԱՍԽԱՆԱՏՎՈՒԹՅՈՒՆԸ</div>
+                <br>
+                <div class="info-block">
+                    <div style=" text-align: justify">
+                        <span style="margin-left: 25px;"/> 5.1 Կատարողը պատասխանատվություն է կրում ծառայության մատուցման` պայմանագրի պահանջների պահպանման համար։
+                        <template v-if="currentOrganized.is_with_condition">
+                            <br/><span style="margin-left: 25px;"/>5.2 Պայմանագրի N 1 հավելվածում նշված տեխնիկական բնութագրին չհամապատասխանող ծառայություն մատուցելու յուրաքանչյուր դեպքում Կատարողից գանձվում է տուգանք` պայմանագրի 4.1 կետում նախատեսված գումարի 0,5 (զրո ամբողջ հինգ տասնորդական) տոկոսի չափով: Ընդ որում տուգանքը հաշվարկվում է նաև ծառայությունը սույն պայմանագրով սահմանված ժամկետում մատուցելու, սակայն պատվիրատուի կողմից այդ չընդունվելու դեպքում:
+                        </template>
+                        <br/><span style="margin-left: 25px;"/>5.3 Պայմանագրով նախատեսված ծառայության մատուցման ժամկետը խախտելու դեպքում Կատարողից յուրաքանչյուր ուշացված աշխատանքային օրվա համար գանձվում է տույժ` մատուցման ենթակա, սակայն չմատուցված ծառայության  գնի  0,05 (զրո ամբողջ հինգ հարյուրերրորդական) տոկոսի չափով։
+                        <br/><span style="margin-left: 25px;"/>5.4 Պայմանագրի 5.2 և 5.3 կետերով նախատեսված տուգանքը և տույժը հաշվարկվում և հաշվանցվում են ծառայություն մատուցելու արդյունքում Կատարողին վճարման ենթակա գումարների հետ։
+                        <br/><span style="margin-left: 25px;"/> 5.5 Պատվիրատուի կողմից պայմանագրի 4.2 կետով նախատեսված ժամկետի խախտման դեպքում Պատվիրատուի նկատմամբ յուրաքանչյուր ուշացված աշխատանքային օրվա համար հաշվարկվում է տույժ` վճարման ենթակա, սակայն չվճարված գումարի 0,05 (զրո ամբողջ հինգ հարյուրերրորդական) տոկոսի չափով։
+                        <br/><span style="margin-left: 25px;"/>5.6 Պայմանագրով չնախատեսված դեպքերում կողմերն իրենց պարտավորությունները չկատարելու կամ ոչ պատշաճ կատարելու համար պատասխանատվության են ենթարկվում ՀՀ օրենսդրությամբ սահմանված կարգով։
+                        <br/><span style="margin-left: 25px;"/>5.7 Տույժերի և (կամ) տուգանքի վճարումը Կողմերին չի ազատում իրենց պայմանագրային պարտավորությունները լրիվ կատարելուց։
+                    </div>
+                </div>
+                <br>
+                <div style="font-weight: 700;text-align: center;">6. ԱՆՀԱՂԹԱՀԱՐԵԼԻ ՈՒԺԻ ԱԶԴԵՑՈՒԹՅՈՒՆ (ՖՈՐՍ-ՄԱԺՈՐ)</div>
+                <br>
+                <div class="info-block">
+                    <div style="text-align: justify">
+                        <span style="margin-left: 25px;"/>Սույն պայմանագրով և սույն պայմանագրի հիման վրա կնքված համաձայնագրերով պարտավորություններն ամբողջությամբ կամ մասնակիորեն չկատարելու համար կողմերն ազատվում են պատասխանատվությունից, եթե դա եղել է անհաղթահարելի ուժի ազդեցության հետևանքով, որը ծագել է սույն պայմանագիրը կնքելուց հետո, և որը կողմերը չէին կարող կանխատեսել կամ կանխարգելել։ Այդպիսի իրավիճակներ են երկրաշարժը, ջրհեղեղը, հրդեհը, պատերազմը, ռազմական և արտակարգ դրություն հայտարարելը, քաղաքական հուզումները, գործադուլները, հաղորդակցության միջոցների աշխատանքի դադարեցումը, պետական մարմինների ակտերը և այլն, որոնք անհնարին են դարձնում սույն պայմանագրով պարտավորությունների կատարումը։ Եթե արտակարգ ուժի ազդեցությունը շարունակվում է 3 (երեք) ամսից ավելի, ապա կողմերից յուրաքանչյուրն իրավունք ունի լուծել պայմանագիրը՝ այդ մասին նախապես տեղյակ պահելով մյուս կողմին։
+                    </div>
+                </div>
+                <br>
+                <div style="font-weight: 700; text-align: center;">7. ԱՅԼ ՊԱՅՄԱՆՆԵՐ</div>
+                <br>
+                <div class="info-block">
+                    <div style="text-align: justify">
+                        <span style="margin-left: 25px;"/>7.1 Պայմանագիրն ուժի մեջ է մտնում կողմերի ստորագրման պահից և գործում է մինչև կողմերի պայմանագրով ստանձնած պարտավորությունների ողջ ծավալով կատարումը։
+                        <template v-if="currentOrganized.rights_responsibilities_fulfillment">
+                            <br/><span style="margin-left: 25px;"/>Պայմանագրով նախատեսված կողմերի իրավունքների և պարտականությունների կատարման պայման է հանդիսանում պայմանագիրը ՀՀ ֆինանսների նախարարության կողմից հաշվառված լինելու հանգամանքը:
+                        </template>
+                        <br/><span style="margin-left: 25px;"/>7.2 Պայմանագրից ծագած կողմի վճարային պարտավորությունը չի կարող դադարել այլ պայմանագրից ծագած՝ հակընդդեմ պարտավորության հաշվանցով, առանց կողմերի գրավոր և կնիքով հաստատված համաձայնության։ Պայմանագրից ծագած պահանջի իրավունքը չի կարող փոխանցվել այլ անձի, առանց պարտապան կողմի գրավոր համաձայնության։
+                        <br/><span style="margin-left: 25px;"/>7.3 Պայմանագրի հետ կապված վեճերը ենթակա են քննության Հայաստանի Հանրապետության դատարաններում։
+                        <br/><span style="margin-left: 25px;"/>7.4 Պայմանագրում փոփոխություններ և լրացումներ կարող են կատարվել միայն Կողմերի փոխադարձ համաձայնությամբ:
+                        <div class="is-agency-agreement">
+                            <div style="color: rgb(17, 85, 204); ">
+                                <span style="margin-left: 25px;"/>7.5 Եթե պայմանագիրն  իրականացվում է ենթակապալի պայմանագիր կնքելու միջոցով.
+                            </div>
+                            <div style="color: rgb(17, 85, 204); ">
+                                <span style="margin-left: 25px;"/>1) Կատարողը պատասխանատվություն է կրում ենթակապալառուի պարտավորությունների չկատարման կամ ոչ պատշաճ կատարման համար.
+                            </div>
+                            <div style="color: rgb(17, 85, 204); ">
+                                <span style="margin-left: 25px;"/>2) պայմանագրի կատարման ընթացքում ենթակապալառուի փոփոխման դեպքում Կատարողը գրավոր տեղեկացնում է Պատվիրատուին՝ տրամադրելով ենթակապալի պայմանագրի պատճենը և դրա կողմ հանդիսացող անձի տվյալները՝ փոփոխությունը կատարվելու օրվանից հինգ աշխատանքային օրվա ընթացքում:
+                            </div>
+                            <div style="color: rgb(17, 85, 204); ">
+                                <span style="margin-left: 25px;"/>7.6 Եթե պայմանագիրն  իրականացվում է համատեղ գործունեության (կոնսորցիումի) պայմանագիր կնքելու միջոցով, ապա այդ պայմանագրի մասնակիցները կրում են համատեղ և համապարտ պատասխանատվություն: Ընդ որում, կոնսորցիումի անդամի կոնսորցիումից դուրս գալու դեպքում պայմանագիրը միակողմանիորեն լուծվում է և կոնսորցիումի անդամների նկատմամբ կիրառվում են պայմանագրով նախատեսված պատասխանատվության միջոցները:
+                            </div>
+                        </div>
+                        <span style="margin-left: 25px;"/>7.7 Ծառայության մատուցման ժամկետը կարող է երկարաձգվել մինչև պայմանագրով այդ ժամկետը լրանալը` Կատարողի առաջարկության առկայության դեպքում` պայմանով, որ Պատվիրատուի մոտ չի վերացել ծառայության օգտագործման պահանջը:
+                        <br/><span style="margin-left: 25px;"/>7.8 Պայմանագրի պատշաճ կատարման պայմաններում կողմերի (Կատարող կամ Պատվիրատու) օգուտները (խնայողություններ) կամ կրած վնասները տվյալ կողմի օգուտը կամ կրած վնասն են։
+                        <br/><span style="margin-left: 25px;"/>Պայմանագրի կողմերի` երրորդ անձանց նկատմամբ պարտավորությունները՝ ներառյալ պայմանագրի կատարման շրջանակում Կատարողի կնքած այլ գործարքները և դրանցից բխող պարտավորությունները, դուրս են պայմանագրի կարգավորման դաշտից և չեն կարող ազդել պայմանագրի կատարման արդյունքն ընդունելու վրա։ Այդ գործարքների և դրանցից բխող պարտավորությունների կատարման հետ կապված հարաբերությունները կարգավորվում են այդ գործարքների հետ կապված հարաբերությունները կարգավորող նորմերով, և դրանց համար պատասխանատու է Կատարողը։
+                        <br/><span style="margin-left: 25px;"/>7.9 Սույն պայմանագրի կապակցությամբ ծագած վեճերը լուծվում են բանակցությունների միջոցով։ Համաձայնություն ձեռք չբերելու դեպքում վեճերը լուծվում են ՀՀ դատարաններում։
+                        <br/><span style="margin-left: 25px;"/>7.10 Սույն պայմանագիրը կազմված է <span class="pages-count">__</span> էջից, կնքվում է երկու օրինակից, որոնք ունեն հավասարազոր իրավաբանական ուժ։ Սույն պայմանագրի N 1, N 2, N 3 և N 3.1 հավելվածները հանդիսանում են պայմանագրի անբաժանելի մասը, յուրաքանչյուր կողմին տրվում է պայմանագրի մեկ օրինակ։
+                        <br/><span style="margin-left: 25px;"/>7.11 Սույն պայմանագրի նկատմամբ կիրառվում է Հայաստանի Հանրապետության իրավունքը։
+                        <template v-if="currentOrganized.is_with_condition && currentOrganized.rows_total_price < 25000000" style="text-align: left">
+                            <span style="color: rgb(17, 85, 204);">
+                                <br/><span style="margin-left: 25px;"/>7.12 Պայմանագրով նախատեսված ծառայությունների մատուցումն իրականացվում է այդ նպատակով ֆինանսական միջոցների առկայության և դրա հիման վրա կողմերի միջև համապատասխան համաձայնագրի կնքման միջոցով: Պայմանագիրը լուծվում է, եթե այն կնքելու օրվան հաջորդող վեց ամսվա ընթացքում այդ նպատակով պայմանագրի կատարման համար ֆինանսական միջոցներ չեն նախատեսվում: Ընդ որում, Կատարողը համաձայնագիրը կնքում և Պատվիրատուին ներկայացնում է համաձայնագիր կնքելու ծանուցումը ստանալու օրվանից տասնհինգ աշխատանքային օրվա ընթացքում։ Հակառակ դեպքում պայմանագիրը Պատվիրատուի կողմից միակողմանիորեն լուծվում է:
+                            </span>
+                        </template>
+                        <template v-else-if="currentOrganized.is_with_condition" style="text-align: left">
+                            <span style="color: rgb(17, 85, 204);">
+                                <br/><span style="margin-left: 25px;"/>7.12 Պայմանագրով նախատեսված ծառայությունների մատուցումն իրականացվում է այդ նպատակով ֆինանսական միջոցների առկայության և դրա հիման վրա կողմերի միջև համապատասխան համաձայնագրի կնքման միջոցով: Պայմանագիրը լուծվում է, եթե այն կնքելու օրվան հաջորդող վեց ամսվա ընթացքում այդ նպատակով պայմանագրի կատարման համար ֆինանսական միջոցներ չեն նախատեսվում: Եթե պայմանագրի կատարման համար հատկացված ֆինանսական միջոցների չափը գերազանցում է գնումների բազային միավորի քսանհինգապատիկը, ապա Պատվիրատուի կողմից համաձայնագիր կկնքվի, եթե Կատարողի կողմից տուժանքի ձևով ներկայացված որակավորման և պայմանագրի ապահովումները` նախատեսված ֆինանսական միջոցների չափով, փոխարինվում է  երաշխիքով կամ կանխիկ փողով` հաշվի առնելով ՀՀ կառավարության 2017 թվականի մայիսի 4-ի N 526-Ն որոշման N 1 հավելվածի 32-րդ կետի 17-րդ ենթակետի «բ» պարբերության պահանջները: Ընդ որում, Կատարողը համաձայնագիրը կնքում, իսկ տուժանքի ձևով ներկայացված որակավորման և պայմանագրի ապահովումների փոխարինման դեպքում նաև նոր ապահովումները Պատվիրատուին ներկայացնում է համաձայնագիր կնքելու ծանուցումը ստանալու օրվանից տասնհինգ աշխատանքային օրվա ընթացքում։ Հակառակ դեպքում պայմանագիրը Պատվիրատուի կողմից միակողմանիորեն լուծվում է:
+                            </span>
+                        </template>
+                    </div>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <div class="info-block">
+                    <div style="margin-top: 3rem; text-align: center; font-weight: 700">
+                        8. ԿՈՂՄԵՐԻ ՀԱՍՑԵՆԵՐԸ, ԲԱՆԿԱՅԻՆ ՎԱՎԵՐԱՊԱՅՄԱՆՆԵՐԸ ԵՎ ՍՏՈՐԱԳՐՈՒԹՅՈՒՆՆԵՐԸ
+                    </div>
+                    <div class="info-block">
+                        <table style="width: 100%; border: none !important">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none !important; text-align: center; width: 50%;">                    
+                                        <h6 class="ft-11" style="font-weight: 700">ՊԱՏՎԻՐԱՏՈՒ</h6>
+                                        <p class="ft-11">« {{ me.organisation[0].translations.name.hy }} » {{ me.organisation[0].translations.company_type.hy }}</p>
+                                        <p class="ft-11" v-if="me.organisation[0].translations.region.hy === me.organisation[0].translations.city.hy">{{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11" v-else>{{ me.organisation[0].translations.region.hy }} {{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11">Բանկ՝ {{ me.organisation[0].translations.bank_name.hy }}</p>
+                                        <p class="ft-11">Հ/Հ {{ me.organisation[0].bank_account }} </p>
+                                        <p class="ft-11">ՀՎՀՀ {{ me.organisation[0].tin }} </p>
+                                        <p class="ft-11">Տնօրեն՝ {{ me.organisation[0].translations.director_name.hy }}</p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>    
+                                    </td>
+                                    <td style="border:none !important; text-align: center; width: 50%;">
+                                        <h6 class="ft-11" style="font-weight: 700">ԿԱՏԱՐՈՂ</h6>
+                                        <p class="ft-11"><span class="winner-name">______________</span></p>
+                                        <p class="ft-11"><span class="winner-address">_____________________</span></p>
+                                        <p class="ft-11">Բանկ՝<span class="winner-bank">___________</span></p>
+                                        <p class="ft-11">Հ/Հ <span class="winner-bank_account">_____________________</span></p>
+                                        <p class="ft-11">ՀՎՀՀ <span class="winner-tin">______________</span></p>
+                                        <p class="ft-11">Տնօրեն՝ <span class="winner-director">_____________________</span></p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>   
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h6 style="text-align: center">
+                        Անհրաժեշտության դեպքում պայմանագրի նախագծում կարող են ներառվել ՀՀ օրենսդրությանը չհակասող դրույթներ։
+                    </h6>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <pagebreak/>
+                <br class="page-break"/>
+                <div class="info-block">
+                    <h6 style="text-align: right; font-weight: 700">Հավելված N1</h6>
+                    <p style="text-align: right; font-weight: 700"><span class="sign-date">__.__.____</span>թ կնքված</p>
+                    <h6 style="text-align: right; font-weight: 700"><span class="contract-code" style="color: rgb(17, 85, 204);"></span> ծածկագրով գնման պայմանագրի</h6>
+                    <h6 style="text-align: center; font-weight: 700; margin-top: 40px">ՏԵԽՆԻԿԱԿԱՆ ԲՆՈՒԹԱԳԻՐ - ԳՆՄԱՆ ԺԱՄԱՆԱԿԱՑՈՒՅՑ*</h6>
+                    <p style="text-align: right">ՀՀ դրամ <span style="margin-left: 25px;"/></p> 
+                    <table style="
+                             
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse;
+                            page-break-inside: avoid;
+                            border: 1px solid  black;
+                            text-align: center;
+                        ">
+                        <tbody>
+                            <tr>
+                                <th colspan="7" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Ծառայության</th>
+                            </tr>
+                            <tr>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Չ/հ</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">տեխնիկական բնութագիրը</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">չափման միավորը</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">ընդհանուր գինը/ՀՀ դրամ</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">ընդհանուր քանակը</th>
+                                <th colspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">մատուցման</th>	
+                            </tr>
+                            <tr>	
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">հասցեն</th>
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Ժամկետը</th>
+                            </tr>
+                        </tbody>
+                        <tbody id="services-table-body" class="purchase-schedule">
+                            <tr v-for="(row, rowIndex) in currentOrganized.organize_rows" :key="rowIndex">
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    ">{{ row.view_id }}</td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    ">{{row.procurement_plan.specifications.description.hy}}</td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    ">{{ row.procurement_plan.unit }}</td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                ">
+                                    <!-- {{ row.procurement_plan.details[0].unit_amount * row.count }} -->
+                                </td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                ">
+                                    {{ row.count }}
+                                </td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    "
+                                    v-if="me.organisation[0].translations.region.hy === me.organisation[0].translations.city.hy"
+                                >
+                                Ք.
+                                    {{ me.organisation[0].translations.city.hy }}
+                                    {{ me.organisation[0].translations.address.hy }}
+                                </td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    "
+                                    v-else
+                                >
+                                    {{ me.organisation[0].translations.region.hy }}
+
+                                    ք.
+
+                                    {{ me.organisation[0].translations.city.hy }}
+                                    {{ me.organisation[0].translations.address.hy }}
+                                </td>
+                                <td style="
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                    ">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h6 style="margin-top: 3rem; text-align: left">
+                        * ծառայության մատուցման վերջնաժամկետը չի կարող ավել լինել, քան տվյալ տարվա դեկտեմբերի 25-ը
+                    </h6>
+                    <div class="info-block" style="padding: 60px 0">
+                        <table style="width: 100%; border: none !important">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none !important; text-align: center; width: 50%;">                    
+                                        <h6 class="ft-11" style="font-weight: 700">ՊԱՏՎԻՐԱՏՈՒ</h6>
+                                        <p class="ft-11">« {{ me.organisation[0].translations.name.hy }} » {{ me.organisation[0].translations.company_type.hy }}</p>
+                                        <p class="ft-11" v-if="me.organisation[0].translations.region.hy === me.organisation[0].translations.city.hy">{{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11" v-else>{{ me.organisation[0].translations.region.hy }} {{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11">Բանկ՝ {{ me.organisation[0].translations.bank_name.hy }}</p>
+                                        <p class="ft-11">Հ/Հ {{ me.organisation[0].bank_account }} </p>
+                                        <p class="ft-11">ՀՎՀՀ {{ me.organisation[0].tin }} </p>
+                                        <p class="ft-11">Տնօրեն՝ {{ me.organisation[0].translations.director_name.hy }}</p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>    
+                                    </td>
+                                    <td style="border:none !important; text-align: center; width: 50%;">
+                                        <h6 class="ft-11" style="font-weight: 700">ԿԱՏԱՐՈՂ</h6>
+                                        <p class="ft-11"><span class="winner-name">______________</span></p>
+                                        <p class="ft-11"><span class="winner-address">_____________________</span></p>
+                                        <p class="ft-11">Բանկ՝<span class="winner-bank">___________</span></p>
+                                        <p class="ft-11">Հ/Հ <span class="winner-bank_account">_____________________</span></p>
+                                        <p class="ft-11">ՀՎՀՀ <span class="winner-tin">______________</span></p>
+                                        <p class="ft-11">Տնօրեն՝ <span class="winner-director">_____________________</span></p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>   
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <pagebreak/> 
+                <br class="page-break"/>
+                <div class="info-block">
+                    <h6 style="text-align: right; font-weight: 700">Հավելված N2</h6>
+                    <p style="text-align: right; font-weight: 700"><span class="sign-date">__.__.____</span>թ կնքված</p>
+                    <h6 style="text-align: right; font-weight: 700"><span class="contract-code" style="color: rgb(17, 85, 204);"></span> ծածկագրով գնման պայմանագրի</h6>
+                    <br class="page-break"/>
+                    <div style="margin: 30px 0; text-align: center; font-weight: 700">
+                        ՎՃԱՐՄԱՆ ԺԱՄԱՆԱԿԱՑՈՒՅՑ*
+                    </div>
+                    <div style="text-align: right; ">ՀՀ դրամ <span style="margin-left: 20px;"/></div>
+                    <table style=" 
+                                width: 100%;
+                                table-layout: fixed;
+                                border-collapse: collapse;
+                                page-break-inside: avoid;
+                                border: 1px solid  black;
+                                text-align: center;"> 
+                        <thead>
+                            <tr>
+                                <th class="ft-11" style="border: 1px solid  black;
+                                                                border-collapse: collapse;">Գնման առարկայի անվանումը</th>
+                                <th class="ft-11" style="border: 1px solid  black;
+                                                                border-collapse: collapse;">Վճարման ժամկետը</th>
+                            </tr>
+                        </thead>
+                        <tbody class="payment-schedule">
+                            <tr>
+                                <td class="ft-11" style="
+                                                border: 1px solid  black;
+                                                border-collapse: collapse;
+                                                padding: 20px;
+                                                text-align: center;
+                                        ">{{ currentOrganized.name }}</td>
+                                <td class="ft-11" style="
+                                                border: 1px solid  black;
+                                                border-collapse: collapse;
+                                                padding: 20px;
+                                                text-align: justify;
+                                        ">{{currentOrganized.payment_schedule_text}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="info-block" style="padding: 60px 0">
+                        <table style="width: 100%; border: none !important">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none !important; text-align: center; width: 50%;">                    
+                                        <h6 class="ft-11" style="font-weight: 700">ՊԱՏՎԻՐԱՏՈՒ</h6>
+                                        <p class="ft-11">« {{ me.organisation[0].translations.name.hy }} » {{ me.organisation[0].translations.company_type.hy }}</p>
+                                        <p class="ft-11" v-if="me.organisation[0].translations.region.hy === me.organisation[0].translations.city.hy">{{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11" v-else>{{ me.organisation[0].translations.region.hy }} {{ me.organisation[0].translations.city.hy }} {{ me.organisation[0].translations.address.hy }}</p>
+                                        <p class="ft-11">Բանկ՝ {{ me.organisation[0].translations.bank_name.hy }}</p>
+                                        <p class="ft-11">Հ/Հ {{ me.organisation[0].bank_account }} </p>
+                                        <p class="ft-11">ՀՎՀՀ {{ me.organisation[0].tin }} </p>
+                                        <p class="ft-11">Տնօրեն՝ {{ me.organisation[0].translations.director_name.hy }}</p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>    
+                                    </td>
+                                    <td style="border:none !important; text-align: center; width: 50%;">
+                                        <h6 class="ft-11" style="font-weight: 700">ԿԱՏԱՐՈՂ</h6>
+                                        <p class="ft-11"><span class="winner-name">______________</span></p>
+                                        <p class="ft-11"><span class="winner-address">_____________________</span></p>
+                                        <p class="ft-11">Բանկ՝<span class="winner-bank">___________</span></p>
+                                        <p class="ft-11">Հ/Հ <span class="winner-bank_account">_____________________</span></p>
+                                        <p class="ft-11">ՀՎՀՀ <span class="winner-tin">______________</span></p>
+                                        <p class="ft-11">Տնօրեն՝ <span class="winner-director">_____________________</span></p>
+                                        <p class="ft-11">______________________</p>
+                                        <p>ստորագրություն</p>   
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <pagebreak/> 
+                <br class="page-break"/>
+                <div class="info-block">
+                    <div style="text-align: right; font-weight: 700">Հավելված N3</div>
+                    <div style="text-align: right; font-weight: 700"><span class="sign-date">__.__.____</span>թ կնքված</div>
+                    <div style="text-align: right; font-weight: 700"><span class="contract-code" style="color: rgb(17, 85, 204);"></span> ծածկագրով գնման պայմանագրի</div>
+                    <div style="margin-top: 30px;">
+                        <table style="width: 100%; border: none !important">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none !important;">
+                                        <div style="text-align: center">
+                                            <p style="font-size: 14px; font-weight: 700">Պայմանագրի կողմ </p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">գտնվելու վայրը__________</p>
+                                            <p style="font-size: 14px;">հհ __________</p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">հվհհ _______________________ </p>
+                                        </div>
+                                    </td>
+                                    <td style="border: 0 !important">
+                                        <div style="text-align: center;">
+                                            <p style="font-size: 14px; font-weight: 700">Պատվիրատու</p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">գտնվելու վայրը__________</p>
+                                            <p style="font-size: 14px;">հհ __________</p>
+                                            <p style="font-size: 14px;">____________________ </p>
+                                            <p style="font-size: 14px;">հվհհ _______________________ </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <div class="info-block">
+                    <br>
+                    <div style="text-align: center; margin-top: 3rem; font-weight: 700; ">ԱՐՁԱՆԱԳՐՈՒԹՅՈՒՆ N</div>
+                    <div style="text-align: center; font-weight: 700">ՊԱՅՄԱՆԱԳՐԻ ԿԱՄ ԴՐԱ ՄԻ ՄԱՍԻ ԿԱՏԱՐՄԱՆ ԱՐԴՅՈՒՆՔՆԵՐԻ ՀԱՆՁՆՄԱՆ-ԸՆԴՈՒՆՄԱՆ</div>
+                    <br>
+                    <p style="text-align: left;">«___» «____»  20 թ.</p>
+                    <p>Պայմանագրի<span style="margin-left: 120px"></span>/այսուհետ`<span style="margin-left: 120px"></span>Պայմանագիր/<span style="margin-left: 120px"></span>անվանումը`</p>
+                    <p>____________________________________________________________________________________________________________________________________________</p>
+                    <p>Պայմանագրի կնքման ամսաթիվը` «____» «__________________» 20 թ.</p>
+                    <p>Պատվիրատուն և Պայմանագրի կողմը՝ հիմք ընդունելով պայմանագրի կատարման վերաբերյալ «_______» «_________»  20 թ. դուրս գրված N___ հաշիվ ապրանքագիրը, կազմեցին սույն արձանագրությունը հետևյալի մասին.</p>
+                    <p>Պայմանագրի շրջանակներում Պայմանագրի կողմը  կատարել է հետևյալ ծառայությունները՝</p>
+                    <table style=" 
+                                    width: 100%;
+                                    table-layout: fixed;
+                                    border-collapse: collapse;
+                                    page-break-inside: avoid;
+                                    border: 1px solid  black;
+                                    text-align: center;">
+                        <tbody>
+                            <tr>
+                                <th rowspan="3" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">N</th>
+                                <th colspan="8" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">
+                                    Մատուցած ծառայությունների
+                                </th>
+                            </tr>
+                            <tr>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">անվանումը</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">տեխնիկական բնութագրի համառոտ շարադրանքը</th>
+                                <th colspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">քանակական ցուցանիշը
+                                </th>
+                                <th colspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">կատարման ժամկետը</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Վճարման ենթակա գումարը /հազար դրամ/</th>
+                                <th rowspan="2" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Վճարման ժամկետը /ըստ վճարման ժամանակացույցի/</th>
+                            </tr>
+                            <tr>
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">պայմանագրով
+                                    հաստատված
+                                    գնման
+                                    ժամանակացույցի</th>
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">փաստացի</th>
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    "> ըստ
+                                    պայմանագրով
+                                    հաստատված
+                                    գնման
+                                    ժամանակացույցի</th>
+                                <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">փաստացի
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                            </tr>
+                            <tr>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                                <td style = "padding: 15px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;
+                                "></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h6 style="text-align: justify; margin-top: 3rem">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Սույն արձանագրության երկկողմ հաստատման համար հիմք հանդիսացած հաշիվ ապրանքագիրը և դրական եզրակացությունը հանդիսանում են սույն արձանագրության բաղկացուցիչ մասը և կցվում են:
+                    </h6>
+                    <div class="col-md-12 d-flex" style="margin-top: 3rem">
+                        <table style="width: 100%; border: none !important">
+                            <tbody style="width: 100%">
+                                <tr>
+                                    <td style="border: 0 !important">
+                                        <div style="text-align: center;">
+                                            <p>Ծառայությունը հանձնեց</p>
+                                            <p>__________________________________</p>
+                                            <p>ստորագրություն</p>
+                                            <p>__________________________________</p>
+                                            <p>ազգանուն, անուն</p>
+                                        </div>
+                                    </td>
+                                    <td style="border: 0 !important">
+                                        <div style="text-align: center;">
+                                            <p>Ծառայությունը ընդունեց</p>
+                                            <p>__________________________________</p>
+                                            <p>ստորագրություն</p>
+                                            <p>__________________________________</p>
+                                            <p>ազգանուն, անուն</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+		        <div class="html2pdf__page-break"/>
+                <pagebreak/> 
+                <br class="page-break"/>
+                <div class="info-block">
+                    <br>
+                    <div style="text-align: right">
+                        Հավելված 3.1	
+                    </div>
+                    <div style="text-align: right">
+                        « &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	»   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         20  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; թ.
+                    </div>
+                    <div style="text-align: right">
+                       <span class="contract-code" style="color: rgb(17, 85, 204);"></span> ծածկագրով պայմանագրի
+                    </div>
+                    <br>
+                    <div style="margin-top: 40px; text-align: center; font-weight: 700;">ԱԿՏ  N</div>
+                    <div style="text-align: center; font-weight: 700">պայմանագրի արդյունքը Պատվիրատուին հանձնելու փաստը ֆիքսելու վերաբերյալ</div>
+                    <p>                
+                        <table style="border: 0 !important">
+                            <tr style="border: 0 !important">
+                                <td style="border: 0 !important">Սույնով արձանագրվում է, որ</td>
+                                <td style="border: 0 !important">________________________</td>
+                                <td style="border: 0 !important">-ի (այսուհետ` Պատվիրատու) և </td>
+                                <td style="border: 0 !important">_______________________________________</td>
+                                <td style="border: 0 !important">-ի</td>
+                            </tr>
+                            <tr style="border: 0 !important">
+                                <td style="border: 0 !important"></td>
+                                <td style="text-align: center; font-size: 8px;border: 0 !important">Պատվիրատուի անունը</td>
+                                <td style="border: 0 !important"></td>
+                                <td style="text-align: center; font-size: 8px;border: 0 !important">Կատարողի անունը</td>
+                                <td style="border: 0 !important"></td>
+                            </tr>
+                        </table>
+                    </p>
+                    <p>                
+                        <table style="border: 0 !important">
+                            <tr style="border: 0 !important">
+                                <td style="border: 0 !important">(այսուհետ` Կատարող) միջև 20 թ.</td>
+                                <td style="border: 0 !important">___________________________</td>
+                                <td style="border: 0 !important">-ին կնքված N</td>
+                                <td style="border: 0 !important"> ___________________________</td>
+                            </tr>
+                            <tr style="border: 0 !important">
+                                <td style="border: 0 !important"></td>
+                                <td style="border: 0 !importanttext-align: center; font-size: 8px;">պայմանագրի կնքման ամսաթիվը</td>
+                                <td style="border: 0 !important"></td>
+                                <td style="border: 0 !importanttext-align: center; font-size: 8px;">պայմանագրի համարը</td>
+                            </tr>
+                        </table>
+                    </p>	
+                    <p>գնման պայմանագրի շրջանակներում Կատարողը  20 թ. _______________________________-ին հանձնման-ընդունման նպատակով</p>
+                    <p>Պատվիրատուին հանձնեց ստորև նշված ծառայությունները.</p>
+                    <table style=" 
+                                width: 100%;
+                                table-layout: fixed;
+                                border-collapse: collapse;
+                                page-break-inside: avoid;
+                                border: 1px solid  black;
+                                text-align: center;">
+                        <tr>
+                            <th colspan="3" style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">Ծառայության</th>
+                        </tr>
+                        <tr>
+                            <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">անվանումը</th>
+                            <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">չափման միավորը</th>
+                            <th style="border: 1px solid  black;
+                                                border-collapse: collapse;
+                                    ">քանակը (փաստացի)</th>
+                        </tr>
+                        <tr>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                        </tr>
+                        <tr>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                            <td style = "padding: 20px;
+                                            border: 1px solid  black;
+                                            border-collapse: collapse;
+                                            text-align: center;"></td>
+                        </tr>
+                    </table>
+                    <h6  style="text-align: left; margin-top: 3rem">Սույն ակտը կազմված է 2 օրինակից, յուրաքանչյուր կողմին տրամադրվում է մեկական օրինակ:</h6>
+                    <div style="margin-top: 15px">
+                        <table style="width: 100%; border: none !important"> 
+                            <tbody>
+                                <tr>
+                                    <td style="border: 0 !important">
+                                        <div style="text-align: center;">
+                                            <p style="font-weight: 700">Հանձնեց</p>
+                                            <p style="margin-top: 32px;">__________________________________</p>
+                                            <p>ազգանուն, անուն</p>
+                                            <p>__________________________________</p>
+                                            <p>ստորագրություն</p>
+                                        </div>
+                                    </td>
+                                    <td style="border: 0 !important">
+                                        <div style="text-align: center;">
+                                            <p style="text-align: center;font-weight: 700">Ընդունեց <br> հայտը նախագծած ներկայացուցիչ`</p>
+                                            <p>__________________________________</p>
+                                            <p>ազգանուն, անուն</p>
+                                            <p>__________________________________</p>
+                                            <p>ստորագրություն</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>
+
+<script>
+    import { required } from "vuelidate/lib/validators";
+    import EditorInput from '@/components/helpers/EditorInput';
+    import purchaseTypesLongNamesCased from '@/mixins/purchaseTypes'
+    import $ from 'jquery';
+
+    export default {
+        name: 'contract_draft_service',
+        components: { EditorInput },
+        mixins: [purchaseTypesLongNamesCased],
+        props: ['handleLoaded'],
+        data() {
+            return {
+                inputs: {
+                    work_names: null,
+                    daysCount: null,
+                    option1: '',
+                    copyCount: null,
+                },
+                purchaseType: 1,
+                getOrgnizeTypeByPlan: '',
+                participants: [],
+                participantsSequence: [],
+                totalMembers: 0,
+            }
+        },
+        validations() {
+            const rules = {
+                inputs: {
+                    work_names: { required },
+                    daysCount: { required },
+                }
+            }
+            if(+this.currentOrganized.organize_type === 0){
+                Object.assign(rules.inputs, {
+                    copyCount: { required },
+                })
+            }
+            return rules;
+        },
+        mounted() { 
+            const locale = 'hy'
+            // this.purchaseType = this.organizedRows[0].type
+            this.getOrgnizeTypeByPlan = this.purchaseTypesLongNamesCased[locale][this.purchaseType || 2]
+        },
+        computed: {
+            currentOrganized() {
+                return this.$store.getters['organizeItender/currentOrganized']
+            },
+            organizedRows() {
+                return this.currentOrganized.organize_rows
+            },
+            userChildren() {
+                return this.$store.getters['user/userChildren']
+            },
+            me() {
+                return this.$store.getters['user/me']
+            },
+        },
+        watch: {
+            currentOrganized: {
+                immediate: true,
+                async handler() {
+                    this.handleLoaded()
+                },
+            },
+        },
+        methods: {
+            async save() {            
+                this.$v.inputs.$touch();
+                const _this = this
+                let hasInvalid = false;
+                $('#commandment-file .editor-input').each(function() {
+                    const inputName = $(this).attr('inputname');
+                    const input = _this.$v.inputs[inputName];
+                    if (input.$error) {
+                        hasInvalid = true;
+                        if(_this.$refs[inputName]._isVue) {
+                            _this.$refs[inputName].$el.focus()
+                        } else {
+                            _this.$refs[inputName].focus();
+                        }
+                        return false;
+                    }
+                });
+                if(!hasInvalid){
+                    $('.editor-input').each(function() {
+                        const txt = $(this).val()
+                        $(this).after(txt)
+                        $(this).remove()
+                    });
+
+                    $('.editor-option').each(function(index) {
+                        const inputNumber = index+1
+                        const optionValue = $(`.option-${inputNumber}:checked`).val()
+                        const notSelectedOptionValue = +optionValue === 1 ? 2 : 1
+                        $(`.option-${inputNumber}-variant-${notSelectedOptionValue}`).remove()
+                        $(`.option-${inputNumber}`).remove()
+                    });
+                    this.$store.dispatch('organizeItender/update', {id: this.$route.params.id, data: { contract_html_hy: $('#commandment-file').html() }}).then(async(response) => {
+                        if(response) {
+                            this.$notify({
+                                group: 'foo',
+                                type: 'success',
+                                text: 'Հաջողությամբ պահպանված է'
+                            })
+                            await this.$modal.hide('new-editor-modal')
+                        }
+                        this.isSaving = false
+                    }).catch(e => {
+                        this.$notify({
+                            group: 'foo',
+                            type: 'error',
+                            title: 'Ինչ որ բան այն չէ',
+                            text: 'Կրկին փորձեք!'
+                        })
+                        this.isSaving = false
+                    })
+                }
+            },
+            consoleLog(msg) {
+                console.log(msg)
+            },
+            calculateMonthPrice(price, percent){
+                return price*percent/100
+            },
+        },
+    }
+</script>
+<style>
+    .option-box *{
+        color: grey;
+    }
+    .option-box-selected *{
+        color: red;
+    }
+</style>
+<style scoped>
+    *{
+        font-family: GHEA grapalat  !important;
+    }
+</style>

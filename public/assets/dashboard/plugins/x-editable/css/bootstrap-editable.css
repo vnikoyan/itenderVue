@@ -250,7 +250,7 @@ a.editable-click.editable-disabled:hover {
   display: inline-block;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
+  border-bottom: 7px solid  black;
   border-bottom-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: -7px;
@@ -657,7 +657,7 @@ a.editable-click.editable-disabled:hover {
   text-shadow: 0 1px 0 #ffffff;
   vertical-align: middle;
   background-color: #eeeeee;
-  border: 1px solid #ccc;
+  border: 1px solid  black;
   margin-left: -5px;
   margin-right: -5px;
 }
